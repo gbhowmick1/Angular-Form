@@ -1,0 +1,17 @@
+<h1>Welcome To Angular {{ name }}</h1>
+<h1>
+  Example of property Binding and Event Binding for adding images in angular
+</h1>
+<input type="text" name="t1" [value]="title" />
+<h4 [innerHtml]="name"></h4>
+<hr />
+<img
+  [src]="imageSource"
+  height="200px"
+  width="200px"
+  alt="Preview Not available"
+/>
+<button (click)="showImg()">Show</button>
+<button (click)="hideImg()">Hide</button>
+<h1>Angular Event Binding Example</h1>
+<button (click)="hello()">Click Here</button>

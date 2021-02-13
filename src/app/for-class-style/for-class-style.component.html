@@ -1,0 +1,85 @@
+<style>
+  .a {
+    background-color: #eee;
+    color: #333;
+  }
+  .b {
+    margin-top: 10px;
+    text-align: justify;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 1px solid #ccc;
+  }
+</style>
+<div class="container">
+  <header>
+    <h1 [ngStyle]="{ 'background-color': 'purple', color: 'white' }">
+      Angular table using Structural Directive *ngFor and Attribute Directive
+      [ngStyle] and [ngClass]
+    </h1>
+  </header>
+  <main>
+    <article class="a">
+      --------------------USING ONLY CLASS BINDING------------- Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Quas voluptates veniam quam
+      voluptatibus sapiente. Porro temporibus sint odit, praesentium possimus
+      alias eum ad amet asperiores illum qui minima sequi minus. Lorem ipsum
+      dolor sit amet consectetur adipisicing elit. Unde ullam fugit minus, ut
+      laborum voluptate itaque sunt nam, architecto tenetur error ipsum eaque
+      nemo nostrum illo voluptatibus est eum magni!
+    </article>
+    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit.</article>
+    <article [ngClass]="'a'">
+      <section [ngClass]="'b'">
+        --------------------USING [ngClass] BINDING-------------Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Quas voluptates veniam quam
+        voluptatibus sapiente. Porro temporibus sint odit, praesentium possimus
+        alias eum ad amet asperiores illum qui minima sequi minus.
+      </section>
+      <section [ngClass]="'b'">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ullam
+        fugit minus, ut laborum voluptate itaque sunt nam, architecto tenetur
+        error ipsum eaque nemo nostrum illo voluptatibus est eum magni! Lorem
+        ipsum dolor sit amet Repellat eius culpa, accusamus obcaecati commodi,
+        corporis magni, mollitia quis nesciunt expedita alias optio illo vel
+        nam.
+      </section>
+      <section [ngClass]="'b'">
+        Nobis praesentium totam architecto quibusdam! Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Mollitia, consectetur doloremque optio
+        voluptates accusamus porro. Iste aut consequuntur voluptas error velit
+        doloremque, nemo eos ex enim explicabo sequi natus sunt!
+      </section>
+    </article>
+  </main>
+  <div>
+    <input type="text" class="text" placeholder="Enter id" #uid />
+
+    <input type="text" class="text" placeholder="Enter name" #uname />
+
+    <input type="text" class="text" placeholder="Enter age" #uage />
+  </div>
+  <div>
+    <button type="submit" (click)="onSubmit(uid, uname, uage)">Submit</button>
+  </div>
+  <table class="table">
+    <th *ngFor="let head of header">{{ head }}</th>
+    <tr *ngFor="let user of users; index as i">
+      <!-- using class property binding -->
+      <td [class.alert-danger]="i % 2 == 0" [class.alert-success]="i % 2 != 0">
+        {{ user.id }}
+      </td>
+      <!-- using attribute Directive ngClass  -->
+      <td
+        [ngClass]="{ 'alert-danger': i % 2 == 0, 'alert-success': i % 2 != 0 }"
+      >
+        {{ user.name }}
+      </td>
+      <!-- passing method to attribute Directive ngClass -->
+      <td [ngClass]="classSelect(i)">
+        {{ user.age }}
+      </td>
+      <button (click)="onDelete(i)">Delete</button>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+  <header class="modal-header">
+    <h1>
+      Two Way Data Binding Using [(ngModel)] and custom directive
+
+      <h4>
+        <section>( Here in custom directive we have used ElementRef.)</section>
+        <br />
+        <section>
+          But ElementRef should not be used in production Because ElementRef is
+          Permitting direct access to the DOM can make your application more
+          vulnerable to XSS attacks.
+        </section>
+        <br />
+        <section>
+          Cross-site scripting (XSS) is a type of security vulnerability
+          typically found in web applications. XSS attacks enable attackers to
+          inject client-side scripts into web pages viewed by other users. A
+          cross-site scripting vulnerability may be used by attackers to bypass
+          access controls such as the same-origin policy.
+        </section>
+      </h4>
+    </h1>
+  </header>
+  <div class="form-group">
+    <label for="name"> Name : </label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="name"
+      autocomplete="off"
+    />
+  </div>
+  <div class="form-group">
+    <label for="age"> Age : </label>
+    <input
+      type="number"
+      class="form-control"
+      [(ngModel)]="age"
+      autocomplete="off"
+    />
+  </div>
+  <div class="form-group">
+    <label for="Gender">Gender : </label>
+    <input type="radio" name="r1" id="r1" value="Male" [(ngModel)]="gender" />
+    Male
+    <input type="radio" name="r1" id="r1" value="Female" [(ngModel)]="gender" />
+    Female
+  </div>
+  <!-- app-color is custom direcive  the corresponding 
+    file is in example.directive.ts -->
+  <h1 app-color>
+    Welcome Your {{ name }} Your age is {{ age }} & Gender is {{ gender }}
+  </h1>
+</div>

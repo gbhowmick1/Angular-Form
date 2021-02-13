@@ -1,0 +1,61 @@
+<div class="container">
+  <header class="modal-header">
+    <h1 app-color>Fill Up The Form</h1>
+  </header>
+  <div class="form-group">
+    Name : <input type="text" class="form-control" #nameRef />
+  </div>
+  <div class="form-group">
+    Mobile : <input type="number" class="form-control" #mobileRef />
+  </div>
+  <div class="form-group">
+    e-mail : <input type="email" class="form-control" #emailRef />
+  </div>
+  <div class="form-group">
+    Age : <input type="text" class="form-control" #ageRef />
+  </div>
+  <div class="form-group">
+    Address : <textarea class="form-control" #addressRef> </textarea>
+  </div>
+  <div class="form-group">
+    <br />
+    Gender :
+    <input type="radio" name="r1" value="Male" #maleRef /> Male
+    <input type="radio" name="r1" value="Female" #femaleRef /> Female
+    <br />
+    <div class="form-group">
+      City :
+      <select class="form-control" #cityRef>
+        <option value="">----Select a City----</option>
+        <option>Kolkata</option>
+        <option>Chennai</option>
+        <option>Bengaluru</option>
+        <option>Mumbai</option>
+      </select>
+    </div>
+    <div class="form-group c">
+      <button
+        (click)="
+          onSubmit(
+            nameRef,
+            mobileRef,
+            emailRef,
+            ageRef,
+            addressRef,
+            maleRef,
+            femaleRef,
+            cityRef
+          )
+        "
+        class="btn btn-sm btn-primary"
+      >
+        Submit
+      </button>
+    </div>
+    <div *ngIf="name" class="alert alert-success">
+      Welcome {{ name }} Your mobile {{ mobile }} e-mail {{ email }} age is
+      {{ age }} address {{ address }} Gender {{ gender }} From
+      {{ city }}
+    </div>
+  </div>
+</div>
