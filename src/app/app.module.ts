@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { DepartmentListComponent } from './department-list/department-list.compo
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { DepartmentDetailsComponent } from './department-details/department-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ApiConsumeComponent } from './api-consume/api-consume.component';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +37,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     EmployeeListComponent,
     DepartmentDetailsComponent,
     PageNotFoundComponent,
+    ApiConsumeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
